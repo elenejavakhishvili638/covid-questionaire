@@ -19,7 +19,15 @@ export default {
         if (payload.name === 'had_antibody_test' && payload.value === 'true') {
             state.questionnaire.covid_date = null;
         }
-
+    
+        if (payload.parent) {
+            if (!state.questionnaire[payload.parent]) {
+                state.questionnaire[payload.parent] = {}
+            }
+            state.questionnaire[payload.parent][payload.name] = payload.value
+        } else {
+            state.questionnaire[payload.name] = payload.value
+        }
 
         localStorage.setItem('questionnaire', JSON.stringify(state));
     }

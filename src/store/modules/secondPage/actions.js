@@ -1,5 +1,5 @@
 export default {
-    getSecondPage(context,  payload) {
+    async getSecondPage(context,  payload) {
         context.commit('setSecondPage',  payload)
     }
 }

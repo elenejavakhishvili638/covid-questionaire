@@ -34,9 +34,8 @@
           <ErrorMessage class="text-[#F15524] text-base mt-[6px] ml-[20px]" name="had_covid" />
         </div>
         <div v-if="values.had_covid === 'yes'">
-          <p class="mt-47 text-black font-bold text-[22px] mb-2">
-            ანტისხეულების ტესტი გაქვს გაკეთებული?*
-          </p>
+          <the-label>ანტისხეულების ტესტი გაქვს გაკეთებული?*</the-label>
+
           <the-radio
             displayValue="კი"
             name="had_antibody_test"
@@ -59,6 +58,51 @@
             class="text-[#F15524] text-base mt-[6px] ml-[20px]"
             name="had_antibody_test"
           />
+        </div>
+        <div
+          class="flex flex-col w-[596px]"
+          v-if="values.had_antibody_test === 'true' && values.had_covid === 'yes'"
+        >
+          <the-label class="mb-[47px]">
+            თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების
+            რაოდენობა*</the-label
+          >
+          <the-input
+            class="mb-[25px] ml-5"
+            name="test_date"
+            placeholder="რიცხვი"
+            type="date"
+            parent="antibodies"
+            :value="values.antibodies.test_date"
+            @input="handleInput"
+          ></the-input>
+          <the-input
+            class="ml-5"
+            name="number"
+            placeholder="ანტისხეულების რაოდენობა"
+            type="number"
+            parent="antibodies"
+            :value="values.antibodies.number"
+            @input="handleInput"
+          ></the-input>
+        </div>
+        <div
+          class="flex flex-col w-[596px]"
+          v-if="values.had_antibody_test === 'false' && values.had_covid === 'yes'"
+        >
+          <the-label class="mb-[47px]">
+            მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</the-label
+          >
+          <the-input
+            class="ml-5"
+            id="covid_date"
+            name="covid_date"
+            placeholder="დდ/თთ/წწ"
+            type="date"
+            validate="required"
+            :value="values && values.covid_date"
+            @input="handleInput"
+          ></the-input>
         </div>
       </Form>
       <div class="relative z-0">
@@ -96,8 +140,8 @@ export default {
     }
   },
   methods: {
-    handleInput({ value, name }) {
-      this.$store.dispatch('questionnaire/getSecondPage', { value, name })
+    handleInput({ value, name, parent = null }) {
+      this.$store.dispatch('questionnaire/getSecondPage', { value, name, parent })
     },
     onSubmit() {}
   }
