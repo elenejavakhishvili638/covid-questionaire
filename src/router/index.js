@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TheLanding from "../pages/TheLanding.vue"
 import FirstPage from "../pages/FirstPage.vue"
+import SecondPage from "../pages/SecondPage.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,6 +13,10 @@ const router = createRouter({
     {
       path: '/identification',
       component: FirstPage
+    },
+    {
+      path: '/covid-questionaire',
+      component: SecondPage
     },
   ]
 })
