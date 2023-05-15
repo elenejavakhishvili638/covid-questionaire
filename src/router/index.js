@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TheLanding from "../pages/TheLanding.vue"
+import FirstPage from "../pages/FirstPage.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -7,6 +8,10 @@ const router = createRouter({
     {
       path: '/',
       component: TheLanding
+    },
+    {
+      path: '/identification',
+      component: FirstPage
     },
   ]
 })
