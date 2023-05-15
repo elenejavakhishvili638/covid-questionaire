@@ -103,7 +103,7 @@
             @input="handleInput"
           ></the-input>
         </div>
-        <navigation-buttons :goBack="goBack" :isValid="meta.valid"></navigation-buttons>
+        <navigation-buttons :goBack="goBack" :isValid="meta && meta.valid"></navigation-buttons>
       </Form>
       <div class="relative z-0">
         <img src="https://i.ibb.co/LQfQvB6/vaccinate2.png" />
