@@ -4,43 +4,35 @@
       <div class="w-1520 flex justify-between">
         <div>
           <Form class="mb-[111px]" @submit="onSubmit">
-            <div class="flex flex-col">
-              <label class="mt-47 text-black font-bold text-[22px] mb-2" for="first_name">
-                სახელი*
-              </label>
-              <input
-                class="w-513 h-50 border-[0.8px] border-black bg-transparent placeholder:text-lg placeholder:font-normal placeholder:text-black pl-5 outline-0"
-                id="first_name"
-                name="first_name"
-                placeholder="იოსებ"
-                type="text"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label class="mt-47 text-black font-bold text-[22px] mb-2" for="last_name">
-                გვარი*
-              </label>
-              <input
-                class="w-513 h-50 border-[0.8px] border-black bg-transparent placeholder:text-lg placeholder:font-normal placeholder:text-black pl-5 outline-0"
-                id="last_name"
-                name="last_name"
-                placeholder="ჯუღაშვილი"
-                type="text"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label class="mt-47 text-black font-bold text-[22px] mb-2" for="email">
-                მეილი*
-              </label>
-              <input
-                class="w-513 h-50 border-[0.8px] border-black bg-transparent placeholder:text-lg placeholder:font-normal placeholder:text-black pl-5 outline-0"
-                id="email"
-                name="email"
-                placeholder="იოსებ"
-                type="email"
-              />
-            </div>
-
+            <the-input
+              id="first_name"
+              name="first_name"
+              placeholder="იოსებ"
+              type="text"
+              :value="values && values.first_name"
+              @input="handleInput"
+              label="სახელი*"
+            ></the-input>
+            <the-input
+              id="last_name"
+              name="last_name"
+              placeholder="ჯუღაშვილი"
+              type="text"
+              validate="required|minLength:გვარის|inGeo:გვარის"
+              :value="values && values.last_name"
+              @input="handleInput"
+              label="გვარი*"
+            ></the-input>
+            <the-input
+              id="email"
+              name="email"
+              placeholder="fbi@redberry.ge"
+              type="text"
+              validate="required|email"
+              :value="values && values.email"
+              @input="handleInput"
+              label="მეილი*"
+            ></the-input>
             <button class="z-[50] absolute bottom-[3rem] left-[50%]">
               <img src="https://i.ibb.co/yScPCy6/Vector-2.png" />
             </button>
@@ -65,10 +57,12 @@
 
 <script>
 import FormLayout from '../components/layout/FormLayout.vue'
+import TheInput from '../components/form/TheInput.vue'
+
 import { Form } from 'vee-validate'
 
 export default {
-  components: { FormLayout, Form },
+  components: { FormLayout, Form, TheInput },
   computed: {
     values() {
       return this.$store.getters['identificaiton/identification']
