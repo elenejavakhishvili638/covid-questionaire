@@ -1,7 +1,7 @@
 <template>
   <form-layout page="2">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form @submit="onSubmit">
+      <Form v-slot="{ meta }" @submit="onSubmit">
         <div>
           <the-label>გაქვს გადატანილი Covid-19?*</the-label>
           <the-radio
@@ -35,7 +35,6 @@
         </div>
         <div v-if="values.had_covid === 'yes'">
           <the-label>ანტისხეულების ტესტი გაქვს გაკეთებული?*</the-label>
-
           <the-radio
             displayValue="კი"
             name="had_antibody_test"
@@ -103,6 +102,15 @@
             :value="values && values.covid_date"
             @input="handleInput"
           ></the-input>
+        </div>
+        <div class="w-[191px] z-[500] absolute bottom-[3rem] left-[45%] flex justify-between">
+          <button type="button" @click="goBack">
+            <img src="https://i.ibb.co/8Pz1dkR/Vector-3.png" />
+          </button>
+          <button :disabled="!meta.valid" type="submit">
+            <img v-if="meta.valid" src="https://i.ibb.co/yScPCy6/Vector-2.png" />
+            <img v-else src="https://i.ibb.co/5LgxYxd/Vector-4.png" />
+          </button>
         </div>
       </Form>
       <div class="relative z-0">
