@@ -70,9 +70,16 @@ import { Form } from 'vee-validate'
 export default {
   components: { FormLayout, Form },
   computed: {
-    values() {}
+    values() {
+      return this.$store.getters['identificaiton/identification']
+    }
   },
-  methods: {}
+  methods: {
+    handleInput({ name, value }) {
+      console.log({ value, name })
+      this.$store.commit('identificaiton/setFirstPage', { name, value })
+    }
+  }
 }
 </script>
 
