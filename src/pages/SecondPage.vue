@@ -103,15 +103,7 @@
             @input="handleInput"
           ></the-input>
         </div>
-        <div class="w-[191px] z-[500] absolute bottom-[3rem] left-[45%] flex justify-between">
-          <button type="button" @click="goBack">
-            <img src="https://i.ibb.co/8Pz1dkR/Vector-3.png" />
-          </button>
-          <button :disabled="!meta.valid" type="submit">
-            <img v-if="meta.valid" src="https://i.ibb.co/yScPCy6/Vector-2.png" />
-            <img v-else src="https://i.ibb.co/5LgxYxd/Vector-4.png" />
-          </button>
-        </div>
+        <navigation-buttons :goBack="goBack" :isValid="meta.valid"></navigation-buttons>
       </Form>
       <div class="relative z-0">
         <img src="https://i.ibb.co/LQfQvB6/vaccinate2.png" />
@@ -132,11 +124,21 @@ import FormLayout from '../components/layout/FormLayout.vue'
 import TheInput from '../components/form/TheInput.vue'
 import TheLabel from '../components/form/TheLabel.vue'
 import TheRadio from '../components/form/TheRadio.vue'
+import NavigationButtons from '../components/form/NavigationButtons.vue'
 
 import { Form, Field, ErrorMessage } from 'vee-validate'
 
 export default {
-  components: { FormLayout, TheInput, Form, Field, ErrorMessage, TheLabel, TheRadio },
+  components: {
+    FormLayout,
+    TheInput,
+    Form,
+    Field,
+    ErrorMessage,
+    TheLabel,
+    TheRadio,
+    NavigationButtons
+  },
 
   computed: {
     values() {
@@ -150,6 +152,9 @@ export default {
   methods: {
     handleInput({ value, name, parent = null }) {
       this.$store.dispatch('questionnaire/getSecondPage', { value, name, parent })
+    },
+    goBack() {
+      this.$router.replace('/identification')
     },
     onSubmit() {}
   }
