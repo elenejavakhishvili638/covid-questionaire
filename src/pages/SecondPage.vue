@@ -151,7 +151,7 @@ export default {
   },
   methods: {
     handleInput({ value, name, parent = null }) {
-      this.$store.dispatch('questionnaire/getSecondPage', { value, name, parent })
+      this.$store.commit('questionnaire/setSecondPage', { value, name, parent })
     },
     goBack() {
       this.$router.replace('/identification')
