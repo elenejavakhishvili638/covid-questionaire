@@ -1,7 +1,35 @@
 <template>
   <form-layout page="3">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form> </Form>
+      <Form>
+        <div>
+          <the-label>უკვე აცრილი ხარ?*</the-label>
+          <the-radio
+            name="had_vaccine"
+            value="true"
+            displayValue="კი"
+            type="radio"
+            v-model="values.had_vaccine"
+            @onInput="handleInput"
+            :validate="validateC"
+          ></the-radio>
+          <the-radio
+            name="had_vaccine"
+            value="false"
+            displayValue="არა"
+            type="radio"
+            v-model="values.had_vaccine"
+            @onInput="handleInput"
+            :validate="validateC"
+          ></the-radio>
+        </div>
+        <div>
+          <the-label>აირჩიე რა ეტაპზე ხარ*</the-label>
+        </div>
+        <div>
+          <the-label>რას ელოდები?*</the-label>
+        </div>
+      </Form>
       <div class="relative z-0">
         <img class="mt-[54px]" src="https://i.ibb.co/bNQpjV0/doctor2.png" />
         <transition appear name="expand">
@@ -18,10 +46,20 @@
 <script>
 import FormLayout from '../components/layout/FormLayout.vue'
 import TheRadio from '../components/form/TheRadio.vue'
+import TheLabel from '../components/form/TheLabel.vue'
 import { Form, ErrorMessage } from 'vee-validate'
 
 export default {
-  components: { FormLayout, TheRadio, Form, ErrorMessage }
+  components: { FormLayout, TheRadio, Form, ErrorMessage, TheLabel },
+  computed: {
+    values() {
+      const vaccination = this.$store.getters['vaccination/vaccination']
+      if (!vaccination) {
+        vaccination = {}
+      }
+      return vaccination
+    }
+  }
 }
 </script>
 
