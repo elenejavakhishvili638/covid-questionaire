@@ -1,7 +1,7 @@
 export default {
     setThirdPage(state, payload) {
         if (payload.name === 'had_vaccine' && payload.value === 'true') {
-            state.vaccination.what_are_you_waiting = "";
+            state.vaccination.i_am_waiting = "";
            
         }
         if (payload.name === 'had_vaccine' && payload.value === 'false') {
