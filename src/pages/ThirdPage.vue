@@ -153,7 +153,9 @@ export default {
     goBack() {
       this.$router.replace('/covid-questionaire')
     },
-    onSubmit() {}
+    onSubmit() {
+      this.$router.replace('/advices')
+    }
   }
 }
 </script>

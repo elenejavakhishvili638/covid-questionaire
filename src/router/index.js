@@ -3,6 +3,8 @@ import TheLanding from "../pages/TheLanding.vue"
 import FirstPage from "../pages/FirstPage.vue"
 import SecondPage from "../pages/SecondPage.vue"
 import ThirdPage from "../pages/ThirdPage.vue"
+import FourthPage from "../pages/FourthPage.vue"
+
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,6 +24,10 @@ const router = createRouter({
     {
       path: '/vaccination',
       component: ThirdPage
+    },
+    {
+      path: '/advices',
+      component: FourthPage
     },
   ]
 })
