@@ -20,7 +20,7 @@
             type="radio"
             v-model="values.had_covid"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <the-radio
             name="had_covid"
@@ -29,7 +29,7 @@
             type="radio"
             v-model="values.had_covid"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <ErrorMessage class="text-[#F15524] text-base mt-[6px] ml-[20px]" name="had_covid" />
         </div>
@@ -42,7 +42,7 @@
             type="radio"
             v-model="values.had_antibody_test"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <the-radio
             displayValue="არა"
@@ -51,7 +51,7 @@
             type="radio"
             v-model="values.had_antibody_test"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <ErrorMessage
             class="text-[#F15524] text-base mt-[6px] ml-[20px]"
@@ -70,8 +70,9 @@
             class="mb-[25px] ml-5"
             name="test_date"
             placeholder="რიცხვი"
-            type="date"
+            type="text"
             parent="antibodies"
+            validate="covidDate"
             :value="values.antibodies.test_date"
             @input="handleInput"
           ></the-input>
@@ -97,8 +98,8 @@
             id="covid_date"
             name="covid_date"
             placeholder="დდ/თთ/წწ"
-            type="date"
-            validate="required"
+            type="text"
+            validate="required|covidDate"
             :value="values && values.covid_date"
             @input="handleInput"
           ></the-input>
@@ -151,12 +152,14 @@ export default {
   },
   methods: {
     handleInput({ value, name, parent = null }) {
-      this.$store.dispatch('questionnaire/getSecondPage', { value, name, parent })
+      this.$store.commit('questionnaire/setSecondPage', { value, name, parent })
     },
     goBack() {
       this.$router.replace('/identification')
     },
-    onSubmit() {}
+    onSubmit() {
+      this.$router.replace('/vaccination')
+    }
   }
 }
 </script>

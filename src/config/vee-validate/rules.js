@@ -37,10 +37,21 @@ const requiredRule = defineRule('required', value => {
     return true
   } )
 
+  const covidDate = defineRule('covidDate', (value) => {
+    const dateRegex = /\d{2}\/\d{2}\/\d{4}/;
+    if (value.length > 0) {
+      if (!dateRegex.test(value)) {
+        return "გამოიყენეთ სწორი ფორმატი - დდ/თთ/წწ"
+      }
+    }
+    return true
+  })
+
   
   export default {
     required: requiredRule,
     email: emailRule,
     minLength,
-    inGeo
+    inGeo,
+    covidDate
   };
