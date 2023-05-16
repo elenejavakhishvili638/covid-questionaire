@@ -73,6 +73,9 @@ export default {
     handleInput({ name, value }) {
       console.log({ value, name })
       this.$store.commit('identificaiton/setFirstPage', { name, value })
+    },
+    onSubmit() {
+      this.$router.replace('/covid-questionaire')
     }
   }
 }
