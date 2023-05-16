@@ -4,6 +4,7 @@ import FirstPage from "../pages/FirstPage.vue"
 import SecondPage from "../pages/SecondPage.vue"
 import ThirdPage from "../pages/ThirdPage.vue"
 import FourthPage from "../pages/FourthPage.vue"
+import TheFin from "../pages/TheFin.vue"
 
 
 const router = createRouter({
@@ -28,6 +29,10 @@ const router = createRouter({
     {
       path: '/advices',
       component: FourthPage
+    },
+    {
+      path: '/thank-you',
+      component: TheFin
     },
   ]
 })

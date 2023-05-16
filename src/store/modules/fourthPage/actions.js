@@ -1,3 +1,5 @@
+import router from '@/router';
+
 export default {
     async submit(context,  payload) {
         
@@ -17,7 +19,6 @@ export default {
         convertedPayload.had_vaccine = convertedPayload.had_vaccine === 'true';
  
         convertedPayload.number_of_days_from_office = Number(convertedPayload.number_of_days_from_office);
-        console.log('payload',payload, 'converted', convertedPayload)
 
         try {
             const response = await fetch("https://covid19.devtest.ge/api/create",
@@ -29,7 +30,10 @@ export default {
                 body: JSON.stringify(convertedPayload)
             })
 
-            console.log(response)
+            if (response.ok) {
+                router.push('/thank-you');
+              }
+            // console.log(response)
         } catch(error) {
             console.log(error)
         }

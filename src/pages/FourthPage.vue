@@ -179,6 +179,7 @@ export default {
       let result = mergedObject(identification, questionnaire, vaccination, advices)
 
       this.$store.dispatch('advices/submit', result)
+      // this.$router.replace('/thank-you')
     }
   }
 }
