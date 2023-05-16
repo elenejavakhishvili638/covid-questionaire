@@ -1,7 +1,48 @@
 <template>
   <form-layout page="4">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form></Form>
+      <Form @submit="onSubmit" class="w-[622px] overflow-y-auto mt-[42px]">
+        <div class="text-[22px]">
+          <p>
+            რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო, რომელსაც ჩვენი
+            თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა წლების განმავლობაში მიზნებისთვის ერთად
+            ბრძოლის მიზეზი, ბევრისთვის კი — ჩვენთან გადმოსვლის.
+          </p>
+          <br />
+          <p>
+            პანდემიის პერიოდში ერთმანეთსაც იშვიათად ვნახულობთ პირისპირ და ყოველდღიური კომუნიკაციაც
+            გაიშვიათდა.
+          </p>
+        </div>
+        <div>
+          <the-label>
+            რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა
+            სურვილისამებრ ჩაერთვება?*</the-label
+          >
+        </div>
+        <div>
+          <the-label>
+            კვირაში რამდენი დღე ისურვებდი ოფისიდან <br />
+            მუშაობას?*</the-label
+          >
+        </div>
+        <div>
+          <the-label>რას ფიქრობ ფიზიკურ შეკრებებზე?</the-label>
+        </div>
+        <div>
+          <the-label
+            >რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?</the-label
+          >
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="bg-[#208298] text-[#FFFFFF] text-lg mt-[54px] h-[56px] w-[180px] rounded-[42px] content-end"
+          >
+            დასრულება
+          </button>
+        </div>
+      </Form>
       <div class="mt-[72px] relative z-0">
         <img src="https://i.ibb.co/KFJGjtN/bike2-1.png" />
         <transition appear name="expand">
@@ -24,9 +65,10 @@
 import FormLayout from '../components/layout/FormLayout.vue'
 import TheRadio from '../components/form/TheRadio.vue'
 import { Form, Field, ErrorMessage } from 'vee-validate'
+import TheLabel from '../components/form/TheLabel.vue'
 
 export default {
-  components: { FormLayout, TheRadio, Form, Field, ErrorMessage }
+  components: { FormLayout, TheRadio, Form, Field, ErrorMessage, TheLabel }
 }
 </script>
 
