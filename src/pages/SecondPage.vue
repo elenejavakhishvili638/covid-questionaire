@@ -20,7 +20,7 @@
             type="radio"
             v-model="values.had_covid"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <the-radio
             name="had_covid"
@@ -29,7 +29,7 @@
             type="radio"
             v-model="values.had_covid"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <ErrorMessage class="text-[#F15524] text-base mt-[6px] ml-[20px]" name="had_covid" />
         </div>
@@ -42,7 +42,7 @@
             type="radio"
             v-model="values.had_antibody_test"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <the-radio
             displayValue="არა"
@@ -51,7 +51,7 @@
             type="radio"
             v-model="values.had_antibody_test"
             @onInput="handleInput"
-            :validate="validateC"
+            validate="required"
           ></the-radio>
           <ErrorMessage
             class="text-[#F15524] text-base mt-[6px] ml-[20px]"
