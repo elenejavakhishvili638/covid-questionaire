@@ -116,28 +116,18 @@
             name="number_of_days_from_office"
           />
         </div>
-        <div class="flex flex-col mt-[47px]">
-          <the-label>რას ფიქრობ ფიზიკურ შეკრებებზე?</the-label>
-          <textarea
-            name="what_about_meetings_in_live"
-            class="bg-transparent border-[0.8px] outline-none"
-            rows="8"
-            :value="values && values.what_about_meetings_in_live"
-            @input="handleInput({ value: $event.target.value, name: $event.target.name })"
-          />
-        </div>
-        <div class="flex flex-col mt-[47px]">
-          <the-label
-            >რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?</the-label
-          >
-          <textarea
-            name="tell_us_your_opinion_about_us"
-            class="bg-transparent border-[0.8px] outline-none"
-            :value="values && values.tell_us_your_opinion_about_us"
-            @input="handleInput({ value: $event.target.value, name: $event.target.name })"
-            rows="8"
-          />
-        </div>
+        <the-textarea
+          name="what_about_meetings_in_live"
+          label="რას ფიქრობ ფიზიკურ შეკრებებზე?"
+          :value="values && values.what_about_meetings_in_live"
+          @input="handleInput"
+        ></the-textarea>
+        <the-textarea
+          name="tell_us_your_opinion_about_us"
+          label="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
+          :value="values && values.tell_us_your_opinion_about_us"
+          @input="handleInput"
+        ></the-textarea>
         <div class="flex justify-end">
           <button
             type="submit"
@@ -170,9 +160,10 @@ import FormLayout from '../components/layout/FormLayout.vue'
 import TheRadio from '../components/form/TheRadio.vue'
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import TheLabel from '../components/form/TheLabel.vue'
+import TheTextarea from '../components/form/TheTextarea.vue'
 
 export default {
-  components: { FormLayout, TheRadio, Form, Field, ErrorMessage, TheLabel },
+  components: { FormLayout, TheRadio, Form, Field, ErrorMessage, TheLabel, TheTextarea },
   computed: {
     values() {
       const advices = this.$store.getters['advices/advices']
