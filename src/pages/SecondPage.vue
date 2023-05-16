@@ -156,7 +156,9 @@ export default {
     goBack() {
       this.$router.replace('/identification')
     },
-    onSubmit() {}
+    onSubmit() {
+      this.$router.replace('/vaccination')
+    }
   }
 }
 </script>
