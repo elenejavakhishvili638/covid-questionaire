@@ -70,8 +70,9 @@
             class="mb-[25px] ml-5"
             name="test_date"
             placeholder="რიცხვი"
-            type="date"
+            type="text"
             parent="antibodies"
+            validate="covidDate"
             :value="values.antibodies.test_date"
             @input="handleInput"
           ></the-input>
@@ -97,8 +98,8 @@
             id="covid_date"
             name="covid_date"
             placeholder="დდ/თთ/წწ"
-            type="date"
-            validate="required"
+            type="text"
+            validate="required|covidDate"
             :value="values && values.covid_date"
             @input="handleInput"
           ></the-input>
