@@ -1,7 +1,7 @@
 <template>
   <form-layout page="4">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form @submit="onSubmit" class="w-[622px] overflow-y-auto mt-[42px]">
+      <Form @submit="onSubmit" class="w-[622px] overflow-y-auto mt-[42px] form-container">
         <div class="text-[22px]">
           <p>
             რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო, რომელსაც ჩვენი
@@ -19,20 +19,124 @@
             რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა
             სურვილისამებრ ჩაერთვება?*</the-label
           >
+          <the-radio
+            name="non_formal_meetings"
+            value="twice_a_week"
+            displayValue="კვირაში ორჯერ"
+            type="radio"
+            v-model="values.non_formal_meetings"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="non_formal_meetings"
+            value="once_a_week"
+            displayValue="კვირაში ერთხელ"
+            type="radio"
+            v-model="values.non_formal_meetings"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="non_formal_meetings"
+            value="once_in_a_two_week"
+            displayValue="ორ კვირაში ერთხელ"
+            type="radio"
+            v-model="values.non_formal_meetings"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="non_formal_meetings"
+            value="once_a_month"
+            displayValue="თვეში ერთხელ"
+            type="radio"
+            v-model="values.non_formal_meetings"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <ErrorMessage
+            class="text-[#F15524] text-base mt-[6px] ml-[20px]"
+            name="non_formal_meetings"
+          />
         </div>
         <div>
           <the-label>
             კვირაში რამდენი დღე ისურვებდი ოფისიდან <br />
             მუშაობას?*</the-label
           >
+          <the-radio
+            name="number_of_days_from_office"
+            value="1"
+            displayValue="1"
+            type="radio"
+            v-model="values.number_of_days_from_office"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="number_of_days_from_office"
+            value="2"
+            displayValue="2"
+            type="radio"
+            v-model="values.number_of_days_from_office"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="number_of_days_from_office"
+            value="3"
+            displayValue="3"
+            type="radio"
+            v-model="values.number_of_days_from_office"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="number_of_days_from_office"
+            value="4"
+            displayValue="4"
+            type="radio"
+            v-model="values.number_of_days_from_office"
+            @onInput="handleInput"
+            validate="required"
+          ></the-radio>
+          <the-radio
+            name="number_of_days_from_office"
+            value="5"
+            displayValue="5"
+            type="radio"
+            v-model="values.number_of_days_from_office"
+            @input="handleInput"
+            validate="required"
+          ></the-radio>
+
+          <ErrorMessage
+            class="text-[#F15524] text-base mt-[6px] ml-[20px]"
+            name="number_of_days_from_office"
+          />
         </div>
-        <div>
+        <div class="flex flex-col mt-[47px]">
           <the-label>რას ფიქრობ ფიზიკურ შეკრებებზე?</the-label>
+          <textarea
+            name="what_about_meetings_in_live"
+            class="bg-transparent border-[0.8px] outline-none"
+            rows="8"
+            :value="values && values.what_about_meetings_in_live"
+            @input="handleInput({ value: $event.target.value, name: $event.target.name })"
+          />
         </div>
-        <div>
+        <div class="flex flex-col mt-[47px]">
           <the-label
             >რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?</the-label
           >
+          <textarea
+            name="tell_us_your_opinion_about_us"
+            class="bg-transparent border-[0.8px] outline-none"
+            :value="values && values.tell_us_your_opinion_about_us"
+            @input="handleInput({ value: $event.target.value, name: $event.target.name })"
+            rows="8"
+          />
         </div>
         <div class="flex justify-end">
           <button
@@ -68,7 +172,25 @@ import { Form, Field, ErrorMessage } from 'vee-validate'
 import TheLabel from '../components/form/TheLabel.vue'
 
 export default {
-  components: { FormLayout, TheRadio, Form, Field, ErrorMessage, TheLabel }
+  components: { FormLayout, TheRadio, Form, Field, ErrorMessage, TheLabel },
+  computed: {
+    values() {
+      const advices = this.$store.getters['advices/advices']
+      if (!advices) {
+        advices = {}
+      }
+      return advices
+    }
+  },
+  methods: {
+    handleInput({ value, name }) {
+      this.$store.commit('advices/setFourthPage', { value, name })
+    },
+    onSubmit() {
+      const advices = this.$store.getters['advices/advices']
+      console.log(advices)
+    }
+  }
 }
 </script>
 
