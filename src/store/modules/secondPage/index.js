@@ -6,7 +6,7 @@ const savedState = localStorage.getItem('questionnaire') ? JSON.parse(localStora
     questionnaire: {
         had_covid: "",
         had_antibody_test: null,
-        covid_date: null,
+        covid_sickness_date: "",
         antibodies: {
             test_date: "",
             number: null

@@ -2,7 +2,7 @@ export default {
     setSecondPage(state, payload) {
         if (payload.name === 'had_covid' && (payload.value === 'no' || payload.value === 'have_right_now')) {
             state.questionnaire.had_antibody_test = null;
-            state.questionnaire.covid_date = null;
+            state.questionnaire.covid_sickness_date = null;
             state.questionnaire.antibodies = {
                 test_date: "",
                 number: null
@@ -17,7 +17,7 @@ export default {
         }
 
         if (payload.name === 'had_antibody_test' && payload.value === 'true') {
-            state.questionnaire.covid_date = null;
+            state.questionnaire.covid_sickness_date = null;
         }
     
         if (payload.parent) {

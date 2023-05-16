@@ -155,8 +155,30 @@ export default {
       this.$store.commit('advices/setFourthPage', { value, name })
     },
     onSubmit() {
+      const identification = this.$store.getters['identificaiton/identification']
+      const questionnaire = this.$store.getters['questionnaire/questionnaire']
+      const vaccination = this.$store.getters['vaccination/vaccination']
       const advices = this.$store.getters['advices/advices']
-      console.log(advices)
+      //   console.log(identification, questionnaire, vaccination, advices)
+
+      const mergedObject = (...objects) => {
+        return objects.reduce((acc, obj) => {
+          Object.entries(obj).forEach(([key, value]) => {
+            if (key === 'antibodies') {
+              if (Object.values(value).some((v) => v != null && v !== '')) {
+                acc[key] = value
+              }
+            } else if (value && Object.keys(value).length !== 0) {
+              acc[key] = value
+            }
+          })
+          return acc
+        }, {})
+      }
+
+      let result = mergedObject(identification, questionnaire, vaccination, advices)
+
+      this.$store.dispatch('advices/submit', result)
     }
   }
 }
