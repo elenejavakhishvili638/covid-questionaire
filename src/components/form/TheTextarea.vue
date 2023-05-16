@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col mt-[47px]">
-    <the-label>{{ label }}</the-label>
+    <label class="text-black font-bold text-[22px] mb-2">{{ label }}</label>
     <textarea
       :name="name"
       class="bg-transparent border-[0.8px] outline-none mt-[20px]"
@@ -12,10 +12,7 @@
 </template>
 
 <script>
-import TheLabel from '../../components/form/TheLabel.vue'
-
 export default {
-  components: { TheLabel },
   props: ['value', 'label', 'name'],
   methods: {
     handleInput(event) {
