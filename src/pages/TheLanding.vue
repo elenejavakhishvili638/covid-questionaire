@@ -11,9 +11,16 @@
       <router-link
         to="/identification"
         v-if="showText"
-        class="text-black text-3xl font-bold break-words w-20 text-center mt-[200px]"
+        @mouseover="showSecondImage = true"
+        @mouseleave="showSecondImage = false"
+        class="relative text-black text-3xl font-bold break-words w-20 text-center mt-[200px] overflow-hidden"
       >
-        კითხვარის დაწყება
+        <img class="absolute animate-slide" src="https://i.ibb.co/JBHYL6m/image.png" />
+        <img
+          v-show="showSecondImage"
+          class="absolute left-[2px] bottom-[-1.5px]"
+          src="https://i.ibb.co/9YnMj1c/2.png"
+        />
       </router-link>
     </transition>
   </div>
@@ -24,7 +31,8 @@ export default {
   data() {
     return {
       showSmallImage: false,
-      showText: false
+      showText: false,
+      showSecondImage: false
     }
   },
   mounted() {
@@ -60,7 +68,7 @@ export default {
 }
 
 .text-enter-active {
-  transition: opacity 0.3s, transform 1s ease-out;
+  transition: opacity 0.3s, transform 1s ease-in-out;
 }
 
 .text-enter-to {
@@ -68,7 +76,17 @@ export default {
   transform: translateY(0%);
 }
 
-a:hover {
-  text-shadow: 4px -3px 0 #232323;
+@keyframes slide {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  animation: slide 1s ease-in-out forwards;
+  position: relative;
 }
 </style>

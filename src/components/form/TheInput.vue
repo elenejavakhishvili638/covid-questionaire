@@ -9,7 +9,7 @@
       :placeholder="placeholder"
       :type="type"
       :parent="parent"
-      @input="handleInput($event.target.value, name, parent)"
+      @input="handleInput($event.target.value)"
       :value="value"
     />
     <ErrorMessage class="text-[#F15524] text-base mt-[6px] ml-[20px]" :name="name" />
@@ -23,8 +23,8 @@ export default {
   components: { Field, ErrorMessage },
   props: ['name', 'placeholder', 'type', 'value', 'label', 'validate', 'parent'],
   methods: {
-    handleInput(value, name, parent) {
-      this.$emit('input', { name, value, parent })
+    handleInput(value) {
+      this.$emit('input', { value, name: this.name, parent: this.parent })
     }
   }
 }

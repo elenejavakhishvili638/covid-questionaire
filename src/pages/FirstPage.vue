@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     handleInput({ name, value }) {
-      console.log({ value, name })
+      // console.log({ value, name })
       this.$store.commit('identificaiton/setFirstPage', { name, value })
     },
     onSubmit() {

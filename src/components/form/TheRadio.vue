@@ -2,7 +2,7 @@
   <div>
     <Field :name="name" :value="modelValue" :rules="validate" v-slot="{ field }">
       <input
-        class="ml-[20px]"
+        class="ml-[20px] mt-[17px]"
         v-bind="field"
         :checked="isChecked"
         :id="name + value"

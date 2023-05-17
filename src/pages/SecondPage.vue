@@ -72,7 +72,7 @@
             placeholder="რიცხვი"
             type="text"
             parent="antibodies"
-            validate="covidDate"
+            :validate="isNumber"
             :value="values.antibodies.test_date"
             @input="handleInput"
           ></the-input>
@@ -82,6 +82,7 @@
             placeholder="ანტისხეულების რაოდენობა"
             type="number"
             parent="antibodies"
+            :validate="isDate"
             :value="values.antibodies.number"
             @input="handleInput"
           ></the-input>
@@ -95,12 +96,12 @@
           >
           <the-input
             class="ml-5"
-            id="covid_date"
-            name="covid_date"
+            id="covid_sickness_date"
+            name="covid_sickness_date"
             placeholder="დდ/თთ/წწ"
             type="text"
             validate="required|covidDate"
-            :value="values && values.covid_date"
+            :value="values && values.covid_sickness_date"
             @input="handleInput"
           ></the-input>
         </div>
@@ -148,6 +149,12 @@ export default {
         questionnaire = {}
       }
       return questionnaire
+    },
+    isDate() {
+      return this.values.antibodies.test_date.length > 0 ? 'required' : ''
+    },
+    isNumber() {
+      return this.values.antibodies.number.length > 0 ? 'required|covidDate' : ''
     }
   },
   methods: {
