@@ -1,7 +1,7 @@
 <template>
   <form-layout page="3">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form v-slot="{ meta }" @submit="onSubmit">
+      <VaccinationForm v-slot="{ meta }" @submit="onSubmit">
         <div>
           <the-label>უკვე აცრილი ხარ?*</the-label>
           <the-radio
@@ -113,7 +113,7 @@
           </more-info>
         </div>
         <navigation-buttons :goBack="goBack" :isValid="meta && meta.valid"></navigation-buttons>
-      </Form>
+      </VaccinationForm>
       <div class="relative z-0">
         <img class="mt-[54px]" src="https://i.ibb.co/bNQpjV0/doctor2.png" />
         <transition appear name="expand">
@@ -136,10 +136,10 @@ import MoreInfo from '../components/MoreInfo.vue'
 import { Form, ErrorMessage } from 'vee-validate'
 
 export default {
-  components: { FormLayout, TheRadio, Form, ErrorMessage, TheLabel, NavigationButtons, MoreInfo },
+  components: { FormLayout, TheRadio, VaccinationForm: Form, ErrorMessage, TheLabel, NavigationButtons, MoreInfo },
   computed: {
     values() {
-      const vaccination = this.$store.getters['vaccination/vaccination']
+      let vaccination = this.$store.getters['vaccination/vaccination']
       if (!vaccination) {
         vaccination = {}
       }

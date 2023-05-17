@@ -1,5 +1,5 @@
 export default {
-    advices (state) {
-        return state.advices
-    },
+  advices(state) {
+    return state.advices
+  }
 }

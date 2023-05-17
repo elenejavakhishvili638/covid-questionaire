@@ -2,7 +2,7 @@
   <form-layout page="4">
     <div class="h-[811px] w-1520 flex justify-between">
       <advices-layout>
-        <Form @submit="onSubmit">
+        <AdvicesForm @submit="onSubmit">
           <div>
             <the-label>
               რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა
@@ -90,7 +90,7 @@
               დასრულება
             </button>
           </div>
-        </Form>
+        </AdvicesForm>
       </advices-layout>
       <div class="mt-[72px] relative z-0">
         <img src="https://i.ibb.co/KFJGjtN/bike2-1.png" />
@@ -113,7 +113,7 @@
 <script>
 import FormLayout from '../components/layout/FormLayout.vue'
 import TheRadio from '../components/form/TheRadio.vue'
-import { Form, Field, ErrorMessage } from 'vee-validate'
+import { Form, ErrorMessage } from 'vee-validate'
 import TheLabel from '../components/form/TheLabel.vue'
 import TheTextarea from '../components/form/TheTextarea.vue'
 import AdvicesLayout from '../components/fourthPage/AdvicesLayout.vue'
@@ -122,8 +122,7 @@ export default {
   components: {
     FormLayout,
     TheRadio,
-    Form,
-    Field,
+    AdvicesForm: Form,
     ErrorMessage,
     TheLabel,
     TheTextarea,
@@ -143,7 +142,7 @@ export default {
   },
   computed: {
     values() {
-      const advices = this.$store.getters['advices/advices']
+      let advices = this.$store.getters['advices/advices']
       if (!advices) {
         advices = {}
       }

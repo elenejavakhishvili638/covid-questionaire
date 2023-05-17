@@ -1,5 +1,5 @@
 export default {
-    vaccination (state) {
-        return state.vaccination
-    },
+  vaccination(state) {
+    return state.vaccination
+  }
 }

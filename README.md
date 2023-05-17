@@ -1,35 +1,49 @@
-# covid-questionaire
+# COVID Questionnaire
 
-This template should help get you started developing with Vue 3 in Vite.
+This vue application is designed to gather insights from new employees regarding their perspectives on the Covid-19 situation. The questionnaire is essential step towards understanding employees' needs, concerns, and suggestions. The data collected will aid in improving internal Covid-19 policy and ensuring a safe and supportive work environment.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Development](#development)
 
-## Customize configuration
+## Prerequisites
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- npm@9.5.0
+- tailwind@3.3.1
 
-## Project Setup
+## Tech stack
 
-```sh
+- [Vue.js](https://vuejs.org/) - Front-end framework
+  - [Vue Router](https://router.vuejs.org/) - Vue.js library for routing and navigation
+  - [Vuex](https://vuex.vuejs.org/) - Vue.js library for state management
+  - [Vee-Validate](https://vee-validate.logaretm.com/v4/) - Vue.js library for form validation
+- [TailwindCSS](https://tailwindcss.com/docs/installation) - CSS framework
+
+## Getting started
+
+1.First of all, you need to clone repository from GitHub:
+
+```bash
+https://github.com/RedberryInternship/-elene-javakhishvili-covid-questionaire
+```
+
+2.Install dependencies:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+and also:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Development
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+```bash
+npm run dev
 ```
