@@ -35,7 +35,7 @@
               label="მეილი*"
             ></the-input>
             <button class="z-[50] absolute bottom-[3rem] left-[50%]">
-              <img src="https://i.ibb.co/yScPCy6/Vector-2.png" />
+              <img :src="vector2" />
             </button>
           </IdentificationForm>
           <div>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="relative z-0">
-          <img src="https://i.ibb.co/Byv2zWS/scan2.png" />
+          <img :src="scan2" />
           <transition appear name="expand">
             <div class="absolute w-[622px] h-[75px] bg-[#D6D16E] z-[-1] top-56 left-32"></div>
           </transition>
@@ -59,11 +59,19 @@
 <script>
 import FormLayout from '../components/layout/FormLayout.vue'
 import TheInput from '../components/form/TheInput.vue'
+import scan2 from "../assets/images/firstPage/scan2.png"
+import vector2 from "../assets/images/vector2.png"
 
 import { Form } from 'vee-validate'
 
 export default {
   components: { FormLayout, IdentificationForm: Form, TheInput },
+  data () {
+    return {
+      scan2,
+      vector2
+    }
+  },
   computed: {
     values() {
       return this.$store.getters['identificaiton/identification']

@@ -108,7 +108,7 @@
         <navigation-buttons :goBack="goBack" :isValid="meta && meta.valid"></navigation-buttons>
       </QuestionnaireForm>
       <div class="relative z-0">
-        <img src="https://i.ibb.co/LQfQvB6/vaccinate2.png" />
+        <img :src="vaccinate2" />
         <transition appear name="expand">
           <div
             class="origin-top-right absolute w-[229px] h-[229px] bg-[#DD3939] z-[-1] top-64 left-20 rounded-full"
@@ -127,6 +127,7 @@ import TheInput from '../components/form/TheInput.vue'
 import TheLabel from '../components/form/TheLabel.vue'
 import TheRadio from '../components/form/TheRadio.vue'
 import NavigationButtons from '../components/form/NavigationButtons.vue'
+import vaccinate2 from "../assets/images/secondPage/vaccinate2.png"
 
 import { Form, ErrorMessage } from 'vee-validate'
 
@@ -140,7 +141,11 @@ export default {
     TheRadio,
     NavigationButtons
   },
-
+  data() {
+    return {
+      vaccinate2
+    }
+  },
   computed: {
     values() {
       let questionnaire = this.$store.getters['questionnaire/questionnaire']

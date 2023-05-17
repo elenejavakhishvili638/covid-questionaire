@@ -115,11 +115,11 @@
         <navigation-buttons :goBack="goBack" :isValid="meta && meta.valid"></navigation-buttons>
       </VaccinationForm>
       <div class="relative z-0">
-        <img class="mt-[54px]" src="https://i.ibb.co/bNQpjV0/doctor2.png" />
+        <img class="mt-[54px]" :src="doctor2" />
         <transition appear name="expand">
           <img
             class="absolute z-[-1] top-10 left-8 origin-bottom-left"
-            src="https://i.ibb.co/34Nn76g/main-logo-2.png"
+            :src="mainlogo2"
           />
         </transition>
       </div>
@@ -134,9 +134,17 @@ import TheLabel from '../components/form/TheLabel.vue'
 import NavigationButtons from '../components/form/NavigationButtons.vue'
 import MoreInfo from '../components/MoreInfo.vue'
 import { Form, ErrorMessage } from 'vee-validate'
+import mainlogo2 from "../assets/images/thirdPage/mainlogo2.png"
+import doctor2 from "../assets/images/thirdPage/doctor2.png"
 
 export default {
   components: { FormLayout, TheRadio, VaccinationForm: Form, ErrorMessage, TheLabel, NavigationButtons, MoreInfo },
+  data () {
+    return {
+      mainlogo2,
+      doctor2
+    }
+  },
   computed: {
     values() {
       let vaccination = this.$store.getters['vaccination/vaccination']
