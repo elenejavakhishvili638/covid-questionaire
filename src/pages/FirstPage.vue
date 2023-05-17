@@ -3,7 +3,7 @@
     <form-layout page="1">
       <div class="w-1520 flex justify-between">
         <div>
-          <Form class="mb-[111px]" @submit="onSubmit">
+          <IdentificationForm class="mb-[111px]" @submit="onSubmit">
             <the-input
               id="first_name"
               name="first_name"
@@ -37,7 +37,7 @@
             <button class="z-[50] absolute bottom-[3rem] left-[50%]">
               <img src="https://i.ibb.co/yScPCy6/Vector-2.png" />
             </button>
-          </Form>
+          </IdentificationForm>
           <div>
             <hr class="w-[237px] border-black mb-5" />
             <p class="w-[365px] text-gray font-normal text-base">
@@ -63,7 +63,7 @@ import TheInput from '../components/form/TheInput.vue'
 import { Form } from 'vee-validate'
 
 export default {
-  components: { FormLayout, Form, TheInput },
+  components: { FormLayout, IdentificationForm: Form, TheInput },
   computed: {
     values() {
       return this.$store.getters['identificaiton/identification']

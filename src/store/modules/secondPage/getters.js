@@ -1,5 +1,5 @@
 export default {
-    questionnaire (state) {
-        return state.questionnaire
-    },
+  questionnaire(state) {
+    return state.questionnaire
+  }
 }

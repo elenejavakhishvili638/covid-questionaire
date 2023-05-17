@@ -1,7 +1,7 @@
 <template>
   <form-layout page="2">
     <div class="h-[811px] w-1520 flex justify-between">
-      <Form v-slot="{ meta }" @submit="onSubmit">
+      <QuestionnaireForm v-slot="{ meta }" @submit="onSubmit">
         <div>
           <the-label>გაქვს გადატანილი Covid-19?*</the-label>
           <the-radio
@@ -106,7 +106,7 @@
           ></the-input>
         </div>
         <navigation-buttons :goBack="goBack" :isValid="meta && meta.valid"></navigation-buttons>
-      </Form>
+      </QuestionnaireForm>
       <div class="relative z-0">
         <img src="https://i.ibb.co/LQfQvB6/vaccinate2.png" />
         <transition appear name="expand">
@@ -128,14 +128,13 @@ import TheLabel from '../components/form/TheLabel.vue'
 import TheRadio from '../components/form/TheRadio.vue'
 import NavigationButtons from '../components/form/NavigationButtons.vue'
 
-import { Form, Field, ErrorMessage } from 'vee-validate'
+import { Form, ErrorMessage } from 'vee-validate'
 
 export default {
   components: {
     FormLayout,
     TheInput,
-    Form,
-    Field,
+    QuestionnaireForm: Form,
     ErrorMessage,
     TheLabel,
     TheRadio,
@@ -144,17 +143,17 @@ export default {
 
   computed: {
     values() {
-      const questionnaire = this.$store.getters['questionnaire/questionnaire']
+      let questionnaire = this.$store.getters['questionnaire/questionnaire']
       if (!questionnaire) {
         questionnaire = {}
       }
       return questionnaire
     },
     isDate() {
-      return this.values.antibodies.test_date.length > 0 ? 'required' : ''
+      return this.values.antibodies && this.values.antibodies.test_date && this.values.antibodies.test_date.length > 0 ? 'required' : ''
     },
     isNumber() {
-      return this.values.antibodies.number.length > 0 ? 'required|covidDate' : ''
+      return this.values.antibodies && this.values.antibodies.number && this.values.antibodies.number.length > 0 ? 'required|covidDate' : ''
     }
   },
   methods: {

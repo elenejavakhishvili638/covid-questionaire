@@ -1,23 +1,23 @@
-import mutations from "./mutations.js"
-import actions from "./actions.js"
-import getters from "./getters.js"
+import mutations from './mutations.js'
+import getters from './getters.js'
 
-const savedState = localStorage.getItem('questionnaire') ? JSON.parse(localStorage.getItem('questionnaire')) : {
-    questionnaire: {
-        had_covid: "",
+const savedState = localStorage.getItem('questionnaire')
+  ? JSON.parse(localStorage.getItem('questionnaire'))
+  : {
+      questionnaire: {
+        had_covid: '',
         had_antibody_test: null,
-        covid_sickness_date: "",
+        covid_sickness_date: '',
         antibodies: {
-            test_date: "",
-            number: null
-        },
+          test_date: '',
+          number: null
+        }
+      }
     }
-};
 
 export default {
-    namespaced: true,
-    state: savedState,
-    mutations,
-    actions,
-    getters,
+  namespaced: true,
+  state: savedState,
+  mutations,
+  getters
 }
