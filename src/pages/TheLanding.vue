@@ -4,7 +4,7 @@
       <img
         class="absolute top-[35%]"
         v-if="showSmallImage"
-        src="https://i.ibb.co/6XPXWfk/main-logo-1.png"
+        :src="mainlogo"
       />
     </transition>
     <transition name="text">
@@ -15,11 +15,11 @@
         @mouseleave="showSecondImage = false"
         class="relative text-black text-3xl font-bold break-words w-20 text-center mt-[200px] overflow-hidden"
       >
-        <img class="absolute animate-slide" src="https://i.ibb.co/JBHYL6m/image.png" />
+        <img class="absolute animate-slide" :src="start" />
         <img
           v-show="showSecondImage"
           class="absolute left-[2px] bottom-[-1.5px]"
-          src="https://i.ibb.co/9YnMj1c/2.png"
+          :src="start2"
         />
       </router-link>
     </transition>
@@ -27,12 +27,19 @@
 </template>
 
 <script>
+import start from "../assets/images/start.png"
+import start2 from "../assets/images/start2.png"
+import mainlogo from "../assets/images/mainlogo.png"
+
 export default {
   data() {
     return {
       showSmallImage: false,
       showText: false,
-      showSecondImage: false
+      showSecondImage: false,
+      start,
+      start2,
+      mainlogo
     }
   },
   mounted() {

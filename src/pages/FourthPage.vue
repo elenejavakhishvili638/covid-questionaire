@@ -93,18 +93,18 @@
         </AdvicesForm>
       </advices-layout>
       <div class="mt-[72px] relative z-0">
-        <img src="https://i.ibb.co/KFJGjtN/bike2-1.png" />
+        <img :src="bike2" />
         <transition appear name="expand">
           <img
             class="absolute z-[-1] top-[65px] left-[90px] origin-bottom-left"
-            src="https://i.ibb.co/svyGqft/main-logo-3.png"
+            :src="mainlogo3"
           />
         </transition>
       </div>
     </div>
     <div class="flex justify-center z-[10] mt-[30px]">
       <router-link to="/vaccination"
-        ><img class="mr-[117px]" src="https://i.ibb.co/8Pz1dkR/Vector-3.png" />
+        ><img class="mr-[117px]" :src="vector3" />
       </router-link>
     </div>
   </form-layout>
@@ -117,6 +117,9 @@ import { Form, ErrorMessage } from 'vee-validate'
 import TheLabel from '../components/form/TheLabel.vue'
 import TheTextarea from '../components/form/TheTextarea.vue'
 import AdvicesLayout from '../components/fourthPage/AdvicesLayout.vue'
+import vector3 from "../assets/images/vector3.png"
+import bike2 from "../assets/images/fourthPage/bike2.png"
+import mainlogo3 from "../assets/images/fourthPage/mainlogo3.png"
 
 export default {
   components: {
@@ -130,6 +133,9 @@ export default {
   },
   data() {
     return {
+      vector3,
+      bike2,
+      mainlogo3,
       radioOptions: [
         { name: 'number_of_days_from_office', value: '0', displayValue: '0' },
         { name: 'number_of_days_from_office', value: '1', displayValue: '1' },
@@ -158,7 +164,6 @@ export default {
       const questionnaire = this.$store.getters['questionnaire/questionnaire']
       const vaccination = this.$store.getters['vaccination/vaccination']
       const advices = this.$store.getters['advices/advices']
-      //   console.log(identification, questionnaire, vaccination, advices)
 
       const mergedObject = (...objects) => {
         return objects.reduce((acc, obj) => {
@@ -178,7 +183,6 @@ export default {
       let result = mergedObject(identification, questionnaire, vaccination, advices)
 
       this.$store.dispatch('advices/submit', result)
-      // this.$router.replace('/thank-you')
     }
   }
 }
