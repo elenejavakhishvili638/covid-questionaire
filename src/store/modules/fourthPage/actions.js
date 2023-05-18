@@ -1,4 +1,5 @@
 import router from '@/router'
+import axios from 'axios'
 
 export default {
   async submit(context, payload) {
@@ -22,18 +23,15 @@ export default {
     )
 
     try {
-      const response = await fetch('https://covid19.devtest.ge/api/create', {
-        method: 'POST',
+      const response = await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(convertedPayload)
+        }
       })
 
-      if (response.ok) {
+      if (response.status === 201) {
         router.push('/thank-you')
       }
-      // console.log(response)
     } catch (error) {
       console.log(error)
     }
