@@ -46,11 +46,3 @@ defineRule('covidDate', (value) => {
   }
   return true
 })
-
-// export default {
-//   required: requiredRule,
-//   email: emailRule,
-//   minLength,
-//   inGeo,
-//   covidDate
-// }
