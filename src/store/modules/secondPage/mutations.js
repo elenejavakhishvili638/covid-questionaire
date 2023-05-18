@@ -5,7 +5,7 @@ export default {
       (payload.value === 'no' || payload.value === 'have_right_now')
     ) {
       state.questionnaire.had_antibody_test = null
-      state.questionnaire.covid_sickness_date = null
+      state.questionnaire.covid_sickness_date = ''
       state.questionnaire.antibodies = {
         test_date: '',
         number: null
