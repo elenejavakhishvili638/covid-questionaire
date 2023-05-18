@@ -24,6 +24,8 @@ export default {
       convertedPayload.number_of_days_from_office
     )
 
+    console.log(convertedPayload)
+
     try {
       await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
         headers: {
