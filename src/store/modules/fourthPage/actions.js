@@ -1,4 +1,5 @@
 import router from '@/router'
+import axios from 'axios'
 
 export default {
   async submit(context, payload) {
@@ -14,26 +15,27 @@ export default {
       convertedPayload.antibodies.test_date = `${parts[2]}-${parts[1]}-${parts[0]}`
     }
 
-    convertedPayload.had_antibody_test = convertedPayload.had_antibody_test === 'true'
+    if (convertedPayload.had_antibody_test) {
+      convertedPayload.had_antibody_test = convertedPayload.had_antibody_test === 'true'
+    }
     convertedPayload.had_vaccine = convertedPayload.had_vaccine === 'true'
 
     convertedPayload.number_of_days_from_office = Number(
       convertedPayload.number_of_days_from_office
     )
 
+    console.log(convertedPayload)
+
     try {
-      const response = await fetch('https://covid19.devtest.ge/api/create', {
-        method: 'POST',
+      const response = await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(convertedPayload)
+        }
       })
 
-      if (response.ok) {
+      if (response.status === 201) {
         router.push('/thank-you')
       }
-      // console.log(response)
     } catch (error) {
       console.log(error)
     }

@@ -182,6 +182,7 @@ export default {
 
       let result = mergedObject(identification, questionnaire, vaccination, advices)
 
+      console.log(result)
       this.$store.dispatch('advices/submit', result)
     }
   }
