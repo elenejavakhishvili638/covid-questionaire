@@ -1,5 +1,5 @@
 import router from '@/router'
-import axios from 'axios'
+import { postCovidForm } from '../../../services/covidPostService'
 
 export default {
   async submit(context, payload) {
@@ -25,12 +25,7 @@ export default {
     )
 
     try {
-      await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-
+      await postCovidForm(convertedPayload)
       router.push('/thank-you')
     } catch (error) {
       console.log(error)
