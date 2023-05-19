@@ -38,11 +38,25 @@ defineRule('inGeo', (value, name) => {
 })
 
 defineRule('covidDate', (value) => {
-  const dateRegex = /\d{2}\/\d{2}\/\d{4}/
+  const dateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/
+
   if (value.length > 0) {
-    if (!dateRegex.test(value)) {
+    const match = dateRegex.exec(value)
+    if (!match) {
       return 'გამოიყენეთ სწორი ფორმატი - დდ/თთ/წწ'
+    } else {
+      const day = parseInt(match[1], 10)
+      const month = parseInt(match[2], 10)
+
+      if (month < 1 || month > 12) {
+        return 'გამოიყენეთ სწორი თვე (01-12)'
+      }
+
+      if (day < 1 || day > 31) {
+        return 'გამოიყენეთ სწორი დღე (01-31)'
+      }
     }
   }
+
   return true
 })
