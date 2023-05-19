@@ -24,18 +24,14 @@ export default {
       convertedPayload.number_of_days_from_office
     )
 
-    console.log(convertedPayload)
-
     try {
-      const response = await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
+      await axios.post('https://covid19.devtest.ge/api/create', convertedPayload, {
         headers: {
           'Content-Type': 'application/json'
         }
       })
 
-      if (response.status === 201) {
-        router.push('/thank-you')
-      }
+      router.push('/thank-you')
     } catch (error) {
       console.log(error)
     }

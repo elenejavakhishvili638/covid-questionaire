@@ -71,7 +71,7 @@
           <the-label>რას ელოდები?*</the-label>
           <the-radio
             name="i_am_waiting"
-            value="registered_and_waiting_for_date"
+            value="registered_and_waiting"
             displayValue="დარეგისტრირებული ვარ და ველოდები რიცხვს"
             type="radio"
             v-model="values.i_am_waiting"
@@ -89,7 +89,7 @@
           ></the-radio>
           <the-radio
             name="i_am_waiting"
-            value="had_covid_and_planning"
+            value="had_covid_and_planning_to_be_vaccinated"
             displayValue="გადატანილი მაქვს და ვგეგმავ აცრას"
             type="radio"
             v-model="values.i_am_waiting"
