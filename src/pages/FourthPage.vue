@@ -28,7 +28,7 @@
             ></the-radio>
             <the-radio
               name="non_formal_meetings"
-              value="once_in_a_two_week"
+              value="once_in_a_two_weeks"
               displayValue="ორ კვირაში ერთხელ"
               type="radio"
               v-model="values.non_formal_meetings"
@@ -37,7 +37,7 @@
             ></the-radio>
             <the-radio
               name="non_formal_meetings"
-              value="once_a_month"
+              value="once_in_a_month"
               displayValue="თვეში ერთხელ"
               type="radio"
               v-model="values.non_formal_meetings"

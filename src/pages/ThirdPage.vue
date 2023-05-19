@@ -46,7 +46,7 @@
           ></the-radio>
           <the-radio
             name="vaccination_stage"
-            value="first_dosage_and_not_registered_on_the_second"
+            value="first_dosage_and_not_registered_yet"
             displayValue="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
             type="radio"
             v-model="values.vaccination_stage"
@@ -58,7 +58,7 @@
             name="vaccination_stage"
           />
           <more-info
-            v-if="values.vaccination_stage === 'first_dosage_and_not_registered_on_the_second'"
+            v-if="values.vaccination_stage === 'first_dosage_and_registered_on_the_second'"
           >
             <template #text>
               რომ არ გადადო,<br />
@@ -101,7 +101,7 @@
             <template #text> 👉 </template>
             <template #link> https://booking.moh.gov.ge/ </template>
           </more-info>
-          <more-info class="w-[491px]" v-if="values.i_am_waiting === 'had_covid_and_planning'">
+          <more-info class="w-[491px]" v-if="values.i_am_waiting === 'had_covid_and_planning_to_be_vaccinated'">
             <template #default>
               <p>ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ ვაქცინის გაკეთება.</p>
               <br />
