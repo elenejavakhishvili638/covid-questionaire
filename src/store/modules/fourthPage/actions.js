@@ -27,6 +27,7 @@ export default {
     try {
       await postCovidForm(convertedPayload)
       router.push('/thank-you')
+      localStorage.clear()
     } catch (error) {
       console.log(error)
     }
