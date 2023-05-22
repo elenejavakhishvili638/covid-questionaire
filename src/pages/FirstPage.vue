@@ -57,8 +57,8 @@
 </template>
 
 <script>
-import FormLayout from '../components/layout/FormLayout.vue'
-import TheInput from '../components/form/TheInput.vue'
+import FormLayout from '../components/FormLayout.vue'
+import TheInput from '../components/TheInput.vue'
 import scan2 from "../assets/images/firstPage/scan2.png"
 import vector2 from "../assets/images/vector2.png"
 

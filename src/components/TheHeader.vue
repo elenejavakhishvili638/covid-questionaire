@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import frame from "../../assets/images/Frame.png"
+import frame from "../assets/images/Frame.png"
 export default {
   props: ['page'],
   data () {
