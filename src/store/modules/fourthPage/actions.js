@@ -1,5 +1,5 @@
 import router from '@/router'
-import { postCovidForm } from '../../../services/covidPostService'
+import { postCovidForm } from '../../../services'
 
 export default {
   async submit(context, payload) {

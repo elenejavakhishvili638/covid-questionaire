@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import vector2 from "../../assets/images/vector2.png"
-import vector3 from "../../assets/images/vector3.png"
-import vector4 from "../../assets/images/vector4.png"
+import vector2 from "../assets/images/vector2.png"
+import vector3 from "../assets/images/vector3.png"
+import vector4 from "../assets/images/vector4.png"
 
 
 export default {

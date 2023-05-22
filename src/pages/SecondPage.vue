@@ -122,11 +122,11 @@
 
 
 <script>
-import FormLayout from '../components/layout/FormLayout.vue'
-import TheInput from '../components/form/TheInput.vue'
-import TheLabel from '../components/form/TheLabel.vue'
-import TheRadio from '../components/form/TheRadio.vue'
-import NavigationButtons from '../components/form/NavigationButtons.vue'
+import FormLayout from '../components/FormLayout.vue'
+import TheInput from '../components/TheInput.vue'
+import TheLabel from '../components/TheLabel.vue'
+import TheRadio from '../components/TheRadio.vue'
+import NavigationButtons from '../components/NavigationButtons.vue'
 import vaccinate2 from "../assets/images/secondPage/vaccinate2.png"
 
 import { Form, ErrorMessage } from 'vee-validate'

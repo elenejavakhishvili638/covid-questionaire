@@ -128,10 +128,10 @@
 </template>
 
 <script>
-import FormLayout from '../components/layout/FormLayout.vue'
-import TheRadio from '../components/form/TheRadio.vue'
-import TheLabel from '../components/form/TheLabel.vue'
-import NavigationButtons from '../components/form/NavigationButtons.vue'
+import FormLayout from '../components/FormLayout.vue'
+import TheRadio from '../components/TheRadio.vue'
+import TheLabel from '../components/TheLabel.vue'
+import NavigationButtons from '../components/NavigationButtons.vue'
 import MoreInfo from '../components/MoreInfo.vue'
 import { Form, ErrorMessage } from 'vee-validate'
 import mainlogo2 from "../assets/images/thirdPage/mainlogo2.png"

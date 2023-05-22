@@ -111,12 +111,12 @@
 </template>
 
 <script>
-import FormLayout from '../components/layout/FormLayout.vue'
-import TheRadio from '../components/form/TheRadio.vue'
+import FormLayout from '../components/FormLayout.vue'
+import TheRadio from '../components/TheRadio.vue'
 import { Form, ErrorMessage } from 'vee-validate'
-import TheLabel from '../components/form/TheLabel.vue'
-import TheTextarea from '../components/form/TheTextarea.vue'
-import AdvicesLayout from '../components/fourthPage/AdvicesLayout.vue'
+import TheLabel from '../components/TheLabel.vue'
+import TheTextarea from '../components/TheTextarea.vue'
+import AdvicesLayout from '../components/AdvicesLayout.vue'
 import vector3 from "../assets/images/vector3.png"
 import bike2 from "../assets/images/fourthPage/bike2.png"
 import mainlogo3 from "../assets/images/fourthPage/mainlogo3.png"

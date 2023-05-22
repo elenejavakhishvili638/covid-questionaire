@@ -1,8 +1,8 @@
-import { covidAPI } from '../config/axios/axiosInstances'
+import axios from '../config/axios'
 
 export async function postCovidForm(data) {
   try {
-    await covidAPI.post('create', data)
+    await axios.post('create', data)
   } catch (error) {
     console.log(error)
   }
